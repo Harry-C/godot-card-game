@@ -60,6 +60,7 @@ grow_horizontal = 2
 grow_vertical = 0
 alignment = 1
 script = ExtResource("2_qainr")
+metadata/_edit_lock_ = true
 
 [node name="Attack" parent="BattleUI/Hand" instance=ExtResource("2_arami")]
 layout_mode = 2

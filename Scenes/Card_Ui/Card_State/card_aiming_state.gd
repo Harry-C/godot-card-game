@@ -9,7 +9,7 @@ func enter() -> void:
 	
 	# Moves card above the rest of cards to highlight the selection
 	var offset := Vector2( (card_ui.parent.size.x / 2) - card_ui.size.x / 2, -card_ui.size.y / 2 )
-	card_ui.animate_to_position(card_ui.parent.global_position + offset, 0.2)
+	card_ui.animate_to_position(card_ui.parent.global_position + offset, 0.5)
 	card_ui.drop_point_detector.monitoring = false
 	
 	# Fire the event to see who else wants to listen to this event
