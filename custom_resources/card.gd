@@ -1,6 +1,8 @@
 class_name Card
 extends Resource
 
+# Resource about attrbiutes of a card
+
 enum Type { ATTACK, SKILL, POWER }
 enum Target { SELF, SINGLE_ENEMY, ALL_ENEMY, EVERYONE }
 
