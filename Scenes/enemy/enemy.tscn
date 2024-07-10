@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://dahflqq52vdcs"]
+[gd_scene load_steps=7 format=3 uid="uid://dahflqq52vdcs"]
 
 [ext_resource type="Script" path="res://Scenes/enemy/enemy.gd" id="1_uhy16"]
 [ext_resource type="Texture2D" uid="uid://1u3b3hwqd8yh" path="res://art/tile_0110.png" id="1_x1kql"]
+[ext_resource type="Resource" uid="uid://b6yieo0nbh7cj" path="res://enemies/crab/crab_enemy.tres" id="2_jkkj8"]
 [ext_resource type="Texture2D" uid="uid://bb3rcs5nqntir" path="res://art/arrow.png" id="2_nopyy"]
 [ext_resource type="PackedScene" uid="uid://hvixan4kk2p5" path="res://Scenes/ui/stats_ui.tscn" id="3_llslm"]
 
@@ -10,11 +11,13 @@
 [node name="Enemy" type="Area2D" groups=["enemy"]]
 collision_layer = 4
 script = ExtResource("1_uhy16")
+stats = ExtResource("2_jkkj8")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_x1kql")
 
 [node name="Arrow" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(0, -14)
 rotation = 3.14159
 scale = Vector2(0.75, 0.75)

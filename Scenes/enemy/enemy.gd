@@ -32,7 +32,6 @@ func update_enemy() -> void:
 		
 	sprite_2d.texture = stats.art
 	arrow.position = Vector2.UP * (sprite_2d.get_rect().size.x / 2 + (sprite_2d.get_rect().size.y / 2) + ARROW_OFFSET)
-	arrow.visible = true
 	update_stats()
 	
 

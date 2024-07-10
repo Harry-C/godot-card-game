@@ -41,12 +41,14 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 		return
 	if not current_card.targets.has(area):
 		current_card.targets.append(area)
+		area.get_node("Arrow").visible = true
 
 func _on_area_2d_area_exited(area: Area2D) -> void:
 	if not current_card or not targeting:
 		return
 	
 	current_card.targets.erase(area)
+	area.get_node("Arrow").visible = false
 
 func _get_points() -> Array:
 	var points := []
