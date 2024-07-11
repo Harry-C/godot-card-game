@@ -1,9 +1,13 @@
-[gd_resource type="Resource" script_class="Card" load_steps=2 format=3 uid="uid://bih1d32x6d677"]
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://bih1d32x6d677"]
 
-[ext_resource type="Script" path="res://custom_resources/card.gd" id="1_ffukk"]
+[ext_resource type="Texture2D" uid="uid://boklhiqs1414d" path="res://art/tile_0115.png" id="1_keem7"]
+[ext_resource type="Script" path="res://characters/warrior/cards/warrior_power.gd" id="1_sdtd3"]
 
 [resource]
-script = ExtResource("1_ffukk")
+script = ExtResource("1_sdtd3")
 id = "warrior_power"
 type = 2
 target = 0
+cost = 2
+icon = ExtResource("1_keem7")
+tooltip = ""

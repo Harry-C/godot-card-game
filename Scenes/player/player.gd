@@ -4,12 +4,10 @@ extends Node2D
 @export var stats: CharacterStats : set = set_character_stats
 
 @onready var player_sprite = $PlayerSprite
+@onready var arrow = $Arrow
 @onready var stats_ui = $StatsUI
 
-#func _ready() -> void:
-#	await get_tree().create_timer(4).timeout
-#	take_damage(21)
-#	stats.block += 17
+const ARROW_OFFSET := 5
 
 func set_character_stats(value: CharacterStats) -> void:
 	stats = value.create_instance()
@@ -26,6 +24,7 @@ func update_player() -> void:
 		await ready
 		
 	player_sprite.texture = stats.art
+	arrow.position = Vector2.UP * (player_sprite.get_rect().size.x / 2 + (player_sprite.get_rect().size.y / 2) + ARROW_OFFSET)
 	update_stats()
 	
 

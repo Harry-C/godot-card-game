@@ -13,7 +13,7 @@ func _ready():
 	Events.card_aim_started.connect(_on_card_aim_started)
 	Events.card_aim_ended.connect(_on_card_aim_ended)
 	
-func _process(delta):
+func _process(_delta):
 	if not targeting:
 		return
 	
@@ -28,7 +28,7 @@ func _on_card_aim_started(card: CardUI) -> void:
 	area_2d.monitorable = true
 	current_card = card
 
-func _on_card_aim_ended(card: CardUI) -> void:
+func _on_card_aim_ended(_card: CardUI) -> void:
 	targeting = false
 	card_arc.clear_points()
 	area_2d.position = Vector2.ZERO
@@ -41,14 +41,12 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 		return
 	if not current_card.targets.has(area):
 		current_card.targets.append(area)
-		area.get_node("Arrow").visible = true
 
 func _on_area_2d_area_exited(area: Area2D) -> void:
 	if not current_card or not targeting:
 		return
 	
 	current_card.targets.erase(area)
-	area.get_node("Arrow").visible = false
 
 func _get_points() -> Array:
 	var points := []

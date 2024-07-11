@@ -6,11 +6,11 @@
 [ext_resource type="Script" path="res://Scenes/ui/Hand.gd" id="2_qainr"]
 [ext_resource type="PackedScene" uid="uid://ml4feb48whv0" path="res://Scenes/player/player.tscn" id="3_1qvg3"]
 [ext_resource type="PackedScene" uid="uid://dm78wqj1pk806" path="res://Scenes/card_target_selector/card_target_selector.tscn" id="3_f602p"]
-[ext_resource type="Resource" uid="uid://b6yieo0nbh7cj" path="res://enemies/crab/crab_enemy.tres" id="3_qlvtk"]
 [ext_resource type="Resource" uid="uid://c7377h3k74di5" path="res://characters/warrior/warrior.tres" id="4_1s5hy"]
 [ext_resource type="Resource" uid="uid://wvseh5jmvncy" path="res://characters/warrior/cards/warrior_axe_attack.tres" id="4_q25ol"]
 [ext_resource type="Resource" uid="uid://6nhh3mn2g2x5" path="res://characters/warrior/cards/warrior_block.tres" id="5_wdv1u"]
 [ext_resource type="Resource" uid="uid://bih1d32x6d677" path="res://characters/warrior/cards/warrior_power.tres" id="8_01kdd"]
+[ext_resource type="PackedScene" uid="uid://b14utisb2h2ok" path="res://Scenes/Card_Ui/energy_ui.tscn" id="11_7aeg5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cialh"]
 size = Vector2(256, 100)
@@ -36,7 +36,6 @@ metadata/_edit_lock_ = true
 
 [node name="Enemy" parent="." instance=ExtResource("2_6us7v")]
 position = Vector2(195, 71)
-stats = ExtResource("3_qlvtk")
 
 [node name="Player" parent="." instance=ExtResource("3_1qvg3")]
 position = Vector2(58, 71)
@@ -64,11 +63,17 @@ metadata/_edit_lock_ = true
 [node name="Attack" parent="BattleUI/Hand" instance=ExtResource("2_arami")]
 layout_mode = 2
 card = ExtResource("4_q25ol")
+character_stats = ExtResource("4_1s5hy")
 
 [node name="Block" parent="BattleUI/Hand" instance=ExtResource("2_arami")]
 layout_mode = 2
 card = ExtResource("5_wdv1u")
+character_stats = ExtResource("4_1s5hy")
 
 [node name="Power" parent="BattleUI/Hand" instance=ExtResource("2_arami")]
 layout_mode = 2
 card = ExtResource("8_01kdd")
+character_stats = ExtResource("4_1s5hy")
+
+[node name="EnergyUI" parent="BattleUI" instance=ExtResource("11_7aeg5")]
+character_stats = ExtResource("4_1s5hy")

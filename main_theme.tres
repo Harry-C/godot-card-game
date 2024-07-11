@@ -1,7 +1,13 @@
-[gd_resource type="Theme" load_steps=2 format=3 uid="uid://bhwmfnyyieplb"]
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://bhwmfnyyieplb"]
 
+[ext_resource type="StyleBox" uid="uid://dnwvt6ame0b3w" path="res://Scenes/Card_Ui/card_base_stylebox.tres" id="1_jcwk0"]
 [ext_resource type="FontFile" uid="uid://dskmdk146n4rq" path="res://art/pixel_rpg.ttf" id="1_lpkdo"]
 
 [resource]
 default_font = ExtResource("1_lpkdo")
 default_font_size = 6
+Label/colors/font_shadow_color = Color(0, 0, 0, 1)
+Label/font_sizes/font_size = 6
+Label/fonts/font = ExtResource("1_lpkdo")
+Label/styles/normal = null
+Panel/styles/panel = ExtResource("1_jcwk0")

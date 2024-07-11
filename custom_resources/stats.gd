@@ -10,6 +10,8 @@ signal stats_changed
 var health: int : set = set_health
 var block: int : set = set_block
 
+var strength: int : set = set_strength
+
 
 func set_health(value: int):
 	health = clampi(value, 0, 999)
@@ -17,6 +19,10 @@ func set_health(value: int):
 
 func set_block(value: int):
 	block = clampi(value, 0, 999)
+	stats_changed.emit()
+	
+func set_strength(value: int):
+	strength = clampi(value, 0, 999)
 	stats_changed.emit()
 	
 func take_damage(damage: int):
@@ -32,6 +38,16 @@ func heal(amount: int):
 		return
 	self.health += amount
 	
+func defend(amount: int):
+	if(amount <= 0):
+		return
+	self.block += amount
+
+func add_strength(amount: int):
+	if(amount <= 0):
+		return
+	self.strength += amount
+
 func create_instance() -> Resource:
 	var instance: Stats = self.duplicate()
 	instance.health = starting_health

@@ -8,12 +8,30 @@ func enter() -> void:
 			card_ui.tween.kill()
 		
 		card_ui.reparent_requested.emit(card_ui)
-		card_ui.color.color = Color.WEB_GREEN
-		card_ui.state.text = "BASE\n" + card_ui.name
 		card_ui.pivot_offset = Vector2.ZERO
 		
+		card_ui.panel.set("theme_override_styles/panel", card_ui.BASE_STYLE)
+
+# Card is usable if it is playable and all other cards are not disabled
+func _card_unusable() -> bool:
+	return not card_ui.card_playable or card_ui.other_cards_disabled
 	
 func on_gui_input(event: InputEvent) -> void:
+	if _card_unusable():
+		return
+
 	if event.is_action_pressed("left_mouse"):
 		card_ui.pivot_offset = card_ui.get_global_mouse_position() - card_ui.global_position
 		transition_requested.emit(self, CardState.State.CLICKED)
+
+func on_mouse_entered():
+	if _card_unusable():
+		return
+		
+	card_ui.panel.set("theme_override_styles/panel", card_ui.HOVER_STYLE)
+	
+func on_mouse_exited():
+	if _card_unusable():
+		return
+		
+	card_ui.panel.set("theme_override_styles/panel", card_ui.BASE_STYLE)

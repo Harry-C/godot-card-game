@@ -3,8 +3,6 @@ extends CardState
 const MOUSE_Y_SNAPBACK_THRESHOLD := 140
 
 func enter() -> void:
-	card_ui.color.color = Color.WEB_PURPLE
-	card_ui.state.text = "AIMING\n" + card_ui.name
 	card_ui.targets.clear()
 	
 	# Moves card above the rest of cards to highlight the selection
