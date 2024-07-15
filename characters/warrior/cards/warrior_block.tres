@@ -11,4 +11,4 @@ target = 0
 cost = 1
 icon = ExtResource("1_cqv7w")
 name = "Defend"
-tooltip = "[center]Gain 5 [color=\"e5b80b\"]block[/color][/center]"
+tooltip = "[center]Gain 5:DEXTERITY: [color=\"e5b80b\"]block[/color][/center]"

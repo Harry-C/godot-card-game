@@ -17,12 +17,14 @@ func _ready():
 	Events.card_played.connect(_on_card_played)
 
 func draw_card(card: Card) -> void:
+	
 	var new_card := card_ui.instantiate()
 	add_child(new_card)
 	new_card.reparent_requested.connect(_on_reparent_requested)
-	new_card.card = card
+	new_card.card = card.duplicate()
 	new_card.parent = self
 	new_card.character_stats = character_stats
+	Events.player_card_drawn.emit(new_card)
 	
 func discard_card(card: CardUI) -> void:
 	card.queue_free()

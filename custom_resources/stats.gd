@@ -12,6 +12,7 @@ var block: int : set = set_block
 
 var strength: int : set = set_strength
 
+var dexterity: int : set = set_dexterity
 
 func set_health(value: int):
 	health = clampi(value, 0, 999)
@@ -23,6 +24,10 @@ func set_block(value: int):
 	
 func set_strength(value: int):
 	strength = clampi(value, 0, 999)
+	stats_changed.emit()
+	
+func set_dexterity(value: int):
+	dexterity = clampi(value, 0, 999)
 	stats_changed.emit()
 	
 func take_damage(damage: int):

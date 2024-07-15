@@ -11,4 +11,4 @@ target = 1
 cost = 1
 icon = ExtResource("1_4lvyt")
 name = "Strike"
-tooltip = "[center]Deal 5 [color=\"e5b80b\"]damage[/color][/center]"
+tooltip = "[center]Deal 5:STRENGTH: [color=\"e5b80b\"]damage[/color][/center]"

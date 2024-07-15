@@ -35,7 +35,7 @@ func on_mouse_entered():
 	card_ui.panel.set("theme_override_styles/panel", card_ui.HOVER_STYLE)
 	
 	# Show tooltip when hovering over a card
-	Events.card_tooltip_show_requested.emit(card_ui.card.icon, card_ui.card.name, card_ui.card.tooltip)
+	Events.card_tooltip_show_requested.emit(card_ui.card.icon, card_ui.card.name, card_ui.card.tooltip_final)
 	
 func on_mouse_exited():
 	if _card_unusable():

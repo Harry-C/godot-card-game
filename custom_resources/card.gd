@@ -17,6 +17,8 @@ enum Target { SELF, SINGLE_ENEMY, ALL_ENEMIES, EVERYONE }
 @export var icon: Texture
 @export var name: String
 @export_multiline var tooltip: String
+# Tooltip with placeholders removed from buffs
+var tooltip_final: String
 
 func is_single_targeted() -> bool:
 	return target == Target.SINGLE_ENEMY

@@ -11,4 +11,4 @@ target = 0
 cost = 2
 icon = ExtResource("1_keem7")
 name = "Flex"
-tooltip = "[center]Gain 2 [color=\"e5b80b\"]strength[/color][/center]"
+tooltip = "[center]Gain 2:STRENGTH: [color=\"e5b80b\"]strength[/color][/center]"

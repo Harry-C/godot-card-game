@@ -24,10 +24,8 @@ signal card_tooltip_hide_requested
 # {
 
 signal player_hand_drawn
+signal player_card_drawn(card_ui: CardUI)
 signal player_hand_discarded
 signal player_turn_ended
-
-#unused
-signal player_draw_card
 
 # }

@@ -46,6 +46,9 @@ func _ready():
 	Events.card_aim_ended.connect(_on_card_drag_or_aiming_ended)
 	Events.card_drag_ended.connect(_on_card_drag_or_aiming_ended)
 	card_state_machine.init(self)
+	
+	# Set the tooltip text when drawing a card
+	Events.player_card_drawn.connect(_on_card_drawn)
 
 # Play a card from my hand
 func play():
@@ -104,7 +107,8 @@ func _set_character_stats(value: CharacterStats):
 	character_stats.stats_changed.connect(_on_character_stats_changed)
 	
 func _on_character_stats_changed():
-	self.card_playable = character_stats.can_play_card(card)
+	card_playable = character_stats.can_play_card(card)
+	_set_tooltip_text(card)
 	pass
 	
 func _on_card_drag_or_aiming_started(used_card: CardUI):
@@ -115,4 +119,31 @@ func _on_card_drag_or_aiming_started(used_card: CardUI):
 
 func _on_card_drag_or_aiming_ended(_card: CardUI):
 	other_cards_disabled = false
-	self.card_playable = character_stats.can_play_card(card)
+	card_playable = character_stats.can_play_card(card)
+
+func _on_card_drawn(card_drawn: CardUI):
+	# All cards will trigger this event. Make sure it is our instance
+	if card_drawn != self:
+		return
+
+	# Add modifiers like strength to card tooltip text
+	#var original_tooltip = card_drawn.card.tooltip
+	_set_tooltip_text(card_drawn.card)
+	
+func _set_tooltip_text(card_to_update: Card):
+	# Strength
+	var strength_amount = character_stats.strength
+	var strength_addition = ""
+	if strength_amount > 0:
+		strength_addition = "[color=\"00FF00\"]+%s[/color]" % strength_amount
+	if card_to_update.tooltip.contains(":STRENGTH:"):
+		card_to_update.tooltip_final = card_to_update.tooltip.replace(":STRENGTH:", strength_addition)
+	
+	# Dexterity
+	var dexterity_amount = character_stats.dexterity
+	var dexterity_addition = ""
+	if dexterity_amount > 0:
+		dexterity_addition = "[color=\"00FF00\"]+%s[/color]" % dexterity_amount
+	if card_to_update.tooltip.contains(":DEXTERITY:"):
+		card_to_update.tooltip_final = card_to_update.tooltip.replace(":DEXTERITY:", dexterity_addition)
+	

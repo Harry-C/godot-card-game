@@ -9,6 +9,10 @@ const HAND_DISCARD_INTERVAL := 0.3
 
 var character_stats: CharacterStats
 
+
+@onready var debug_discard_total: Label = %debug_discard_total
+@onready var debug_draw_pile_total: Label = %debug_draw_pile_total
+
 func _ready() -> void:
 	Events.card_played.connect(_on_card_played)
 	
@@ -23,6 +27,9 @@ func start_turn() -> void:
 	character_stats.set_block(0)	
 	character_stats.reset_energy()
 	draw_cards(character_stats.cards_per_turn)
+	
+	debug_discard_total.text = "Discard: %d" % character_stats.discard.cards.size()
+	debug_draw_pile_total.text = "Draw: %d" % character_stats.draw_pile.cards.size()
 
 func end_turn() -> void:
 	hand.disable_hand()
