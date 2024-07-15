@@ -9,4 +9,4 @@ func execute(targets: Array[Node]):
 		if not target:
 			continue
 		if target is Enemy or target is Player:
-			target.stats.defend(amount)
+			target.character_stats.defend(amount)

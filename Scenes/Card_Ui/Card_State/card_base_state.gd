@@ -7,10 +7,14 @@ func enter() -> void:
 		if card_ui.tween and card_ui.tween.is_running():
 			card_ui.tween.kill()
 		
+		# Move the card back to the Hand
 		card_ui.reparent_requested.emit(card_ui)
 		card_ui.pivot_offset = Vector2.ZERO
-		
+		# Make the card no longer use "selected" or "actioning" styles
 		card_ui.panel.set("theme_override_styles/panel", card_ui.BASE_STYLE)
+		
+		# If we had a tooltip open, close it now
+		Events.card_tooltip_hide_requested.emit()
 
 # Card is usable if it is playable and all other cards are not disabled
 func _card_unusable() -> bool:
@@ -30,8 +34,14 @@ func on_mouse_entered():
 		
 	card_ui.panel.set("theme_override_styles/panel", card_ui.HOVER_STYLE)
 	
+	# Show tooltip when hovering over a card
+	Events.card_tooltip_show_requested.emit(card_ui.card.icon, card_ui.card.name, card_ui.card.tooltip)
+	
 func on_mouse_exited():
 	if _card_unusable():
 		return
 		
 	card_ui.panel.set("theme_override_styles/panel", card_ui.BASE_STYLE)
+	
+	# If we had a tooltip open, close it now
+	Events.card_tooltip_hide_requested.emit()

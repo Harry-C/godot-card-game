@@ -11,5 +11,5 @@ func execute(targets: Array[Node]):
 		if target is Enemy or target is Player:
 			if target is Enemy:
 				var player = targets[0].get_tree().get_nodes_in_group("player")
-				amount += player[0].stats.strength
+				amount += player[0].character_stats.strength
 			target.take_damage(amount)

@@ -2,18 +2,36 @@ class_name Hand
 
 extends HBoxContainer
 
+# Used for passing down character stats to the card_ui cards from battle parent
+@export var character_stats: CharacterStats
+
+# Used for loading in new cards
+@onready var card_ui := preload("res://Scenes/Card_Ui/card_ui.tscn")
+
+
 var cards_played_this_turn := 0
 
 # Get all cards in hand and setup a signal to reattach to the hand when
 # the card goes into the base state
 func _ready():
 	Events.card_played.connect(_on_card_played)
+
+func draw_card(card: Card) -> void:
+	var new_card := card_ui.instantiate()
+	add_child(new_card)
+	new_card.reparent_requested.connect(_on_reparent_requested)
+	new_card.card = card
+	new_card.parent = self
+	new_card.character_stats = character_stats
 	
-	for hand_card in get_children():
-		var card_ui := hand_card as CardUI
-		card_ui.parent = self
-		card_ui.reparent_requested.connect(_on_reparent_requested)
-		
+func discard_card(card: CardUI) -> void:
+	card.queue_free()
+	
+func disable_hand() -> void:
+	pass
+	#for card in get_children():
+	#	card.disabled = true
+
 # reparent_requested Callback function
 func _on_reparent_requested(child: CardUI) -> void:
 	child.reparent(self)

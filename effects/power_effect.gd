@@ -9,4 +9,4 @@ func execute(targets: Array[Node]):
 		if not target:
 			continue
 		if target is Player:
-			target.stats.add_strength(amount)
+			target.character_stats.add_strength(amount)
