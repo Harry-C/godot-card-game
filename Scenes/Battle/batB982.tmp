@@ -102,7 +102,6 @@ metadata/_edit_use_anchors_ = true
 
 [node name="debug_draw_pile_total" type="Label" parent="BattleUI"]
 unique_name_in_owner = true
-visible = false
 offset_left = 216.0
 offset_top = 99.0
 offset_right = 256.0
@@ -112,7 +111,6 @@ text = "deck"
 
 [node name="debug_discard_total" type="Label" parent="BattleUI"]
 unique_name_in_owner = true
-visible = false
 offset_left = 217.0
 offset_top = 110.0
 offset_right = 274.0

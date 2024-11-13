@@ -48,6 +48,8 @@ grow_vertical = 2
 size_flags_vertical = 1
 theme = ExtResource("2_re63w")
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
 text = "99"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -82,15 +84,15 @@ text = "99"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Strength" type="HBoxContainer" parent="Block"]
+[node name="Strength" type="HBoxContainer" parent="."]
 layout_mode = 2
 
-[node name="StrengthImage" type="TextureRect" parent="Block/Strength"]
+[node name="StrengthImage" type="TextureRect" parent="Strength"]
 layout_mode = 2
 texture = ExtResource("5_s1hpr")
 stretch_mode = 5
 
-[node name="StrengthLabel" type="Label" parent="Block/Strength/StrengthImage"]
+[node name="StrengthLabel" type="Label" parent="Strength/StrengthImage"]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8

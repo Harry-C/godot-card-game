@@ -6,7 +6,7 @@ extends HBoxContainer
 @onready var block_image = $Block/BlockImage
 @onready var block_label = %BlockLabel
 
-@onready var strength_image = $Block/Strength/StrengthImage
+@onready var strength_image = $Strength/StrengthImage
 @onready var strength_label = %StrengthLabel
 
 func update_stats(stats: Stats):
@@ -17,4 +17,3 @@ func update_stats(stats: Stats):
 	health_image.visible = stats.health > 0
 	block_image.visible = stats.block > 0
 	strength_image.visible = stats.strength > 0
-

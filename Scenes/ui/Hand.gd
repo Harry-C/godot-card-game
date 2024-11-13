@@ -30,9 +30,8 @@ func discard_card(card: CardUI) -> void:
 	card.queue_free()
 	
 func disable_hand() -> void:
-	pass
-	#for card in get_children():
-	#	card.disabled = true
+	for card in get_children():
+		card.card_playable = false
 
 # reparent_requested Callback function
 func _on_reparent_requested(child: CardUI) -> void:

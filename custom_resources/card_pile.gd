@@ -33,4 +33,3 @@ func _to_string() -> String:
 	for i in cards.size():
 		card_string.append("%s: %s" % [i+1, cards[i].id])
 	return "\n".join(card_string)
-
