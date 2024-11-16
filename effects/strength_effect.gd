@@ -1,4 +1,4 @@
-class_name PowerEffect
+class_name StrengthEffect
 
 extends Effect
 

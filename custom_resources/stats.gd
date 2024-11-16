@@ -53,6 +53,11 @@ func add_strength(amount: int):
 		return
 	self.strength += amount
 
+func add_dexterity(amount: int):
+	if(amount <= 0):
+		return
+	self.dexterity += amount
+
 func create_instance() -> Resource:
 	var instance: Stats = self.duplicate()
 	instance.health = starting_health

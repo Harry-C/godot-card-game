@@ -130,6 +130,9 @@ func _on_card_drawn(card_drawn: CardUI):
 	_set_tooltip_text(card_drawn.card)
 	
 func _set_tooltip_text(card_to_update: Card):
+	# Start with basic tooltip and replace content as needed
+	card_to_update.tooltip_final = card_to_update.tooltip
+	
 	# Strength
 	var strength_amount = character_stats.strength
 	var strength_addition = ""

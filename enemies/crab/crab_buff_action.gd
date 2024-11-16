@@ -19,7 +19,7 @@ func perform_action() -> void:
 	tween.tween_property(enemy.sprite_2d, "scale:x", 1, 0.4)
 	tween.tween_property(enemy.sprite_2d, "scale:y", 1, 0.4)
 	
-	var power_effect := PowerEffect.new()
+	var power_effect := StrengthEffect.new()
 	power_effect.amount = strength
 	var target_array: Array[Node] = [enemy]
 	power_effect.execute(target_array)

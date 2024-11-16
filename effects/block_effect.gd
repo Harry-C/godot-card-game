@@ -9,6 +9,8 @@ func execute(targets: Array[Node]):
 		if not target:
 			continue
 		if target is Player:
+			amount += target.character_stats.dexterity
 			target.character_stats.defend(amount)
 		if target is Enemy:
+			amount += target.stats.dexterity
 			target.stats.defend(amount)
