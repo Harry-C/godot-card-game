@@ -35,8 +35,8 @@ func disable_hand() -> void:
 
 # reparent_requested Callback function
 func _on_reparent_requested(child: CardUI) -> void:
+	child.disabled = true
 	child.reparent(self)
-	print (child.index)
 	var new_index := clampi( child.index, 0, get_child_count())
 	move_child.call_deferred(child,new_index)
 

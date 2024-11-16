@@ -8,7 +8,7 @@ var action_performed := false
 func is_performable() -> bool:
 	if not enemy or action_performed:
 		return false	
-	if enemy.stats.health <= enemy.stats.starting_health / 2:
+	if enemy.stats.health <= enemy.stats.starting_health / 2.0:
 		action_performed = true
 	return action_performed
 

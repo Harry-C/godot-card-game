@@ -36,7 +36,7 @@ var tween: Tween
 # Determine if current card is playable
 var card_playable := true : set = _set_card_playable
 # If playable, disable all other cards
-var other_cards_disabled := false
+var disabled := false
 
 # Called when the node enters the scene tree for the first time.
 # start the state machine
@@ -114,11 +114,10 @@ func _on_character_stats_changed():
 func _on_card_drag_or_aiming_started(used_card: CardUI):
 	if used_card == self:
 		return
-	
-	other_cards_disabled = true
+	disabled = true
 
 func _on_card_drag_or_aiming_ended(_card: CardUI):
-	other_cards_disabled = false
+	disabled = false
 	card_playable = character_stats.can_play_card(card)
 
 func _on_card_drawn(card_drawn: CardUI):

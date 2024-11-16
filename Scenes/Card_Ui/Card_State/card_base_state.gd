@@ -18,7 +18,7 @@ func enter() -> void:
 
 # Card is usable if it is playable and all other cards are not disabled
 func _card_unusable() -> bool:
-	return not card_ui.card_playable or card_ui.other_cards_disabled
+	return not card_ui.card_playable or card_ui.disabled
 	
 func on_gui_input(event: InputEvent) -> void:
 	if _card_unusable():
