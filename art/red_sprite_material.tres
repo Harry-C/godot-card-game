@@ -1,0 +1,6 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://dcnt1r6r63jt6"]
+
+[ext_resource type="Shader" path="res://art/red_sprite_material.gdshader" id="1_jqs3i"]
+
+[resource]
+shader = ExtResource("1_jqs3i")

@@ -14,7 +14,7 @@ extends HBoxContainer
 @onready var strength_label = %StrengthLabel
 
 @onready var dexterity = $Dexterity
-@onready var dexterity_image = $Dexterity/StrengthImage
+@onready var dexterity_image = $Dexterity/DexterityImage
 @onready var dexterity_label = %DexterityLabel
 
 func update_stats(stats: Stats):

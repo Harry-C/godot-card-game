@@ -9,6 +9,6 @@ script = ExtResource("1_u0onb")
 starting_deck = ExtResource("3_mqvos")
 cards_per_turn = 5
 max_energy = 3
-starting_health = 30
+starting_health = 10
 starting_block = 10
 art = ExtResource("1_6jfdx")

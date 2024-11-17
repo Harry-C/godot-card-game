@@ -31,13 +31,11 @@ func _ready() -> void:
 	
 func start_battle(character_stats_param: CharacterStats) -> void:
 	print("battle has started!")
-	
 	player_handler.start_battle(character_stats_param)
 
 func _on_enemy_turn_ended() -> void:
 	player_handler.start_turn()
 	enemy_handler.reset_enemy_actions()
-
 
 func _on_enemy_handler_child_order_changed() -> void:
 	if enemy_handler.get_child_count() == 0:

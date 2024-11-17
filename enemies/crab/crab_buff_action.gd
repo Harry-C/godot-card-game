@@ -25,7 +25,7 @@ func perform_action() -> void:
 	power_effect.execute(target_array)
 	
 	# Do not immediately finish, wait a bit first to 
-	# show to the player block has been applied
+	# show to the player strength has been applied
 	get_tree().create_timer(0.6, false).timeout.connect(
 		func():
 			Events.enemy_action_completed.emit(enemy)

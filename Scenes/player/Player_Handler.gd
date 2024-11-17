@@ -24,7 +24,9 @@ func start_battle(character_stats_param: CharacterStats) -> void:
 	start_turn()
 
 func start_turn() -> void:
-	character_stats.set_block(0)	
+	character_stats.set_block(0)
+	character_stats.decrease_strength(1)
+	character_stats.decrease_dexterity(1)
 	character_stats.reset_energy()
 	draw_cards(character_stats.cards_per_turn)
 	

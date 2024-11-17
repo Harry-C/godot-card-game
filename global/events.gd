@@ -27,6 +27,7 @@ signal player_hand_drawn
 signal player_card_drawn(card_ui: CardUI)
 signal player_hand_discarded
 signal player_turn_ended
+signal player_hit
 signal player_died
 
 # }
