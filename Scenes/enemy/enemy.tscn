@@ -11,6 +11,8 @@
 script = ExtResource("3_8o5bg")
 starting_health = 7
 starting_block = 0
+starting_strength = 0
+starting_dexterity = 0
 art = ExtResource("1_x1kql")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l4m01"]

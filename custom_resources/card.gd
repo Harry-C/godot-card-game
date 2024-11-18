@@ -35,22 +35,22 @@ func _get_targets(targets: Array[Node]) -> Array[Node]:
 		Target.SELF:
 			return tree.get_nodes_in_group("player")
 		Target.ALL_ENEMIES:
-			return tree.get_nodes_in_group("enemies")
+			return tree.get_nodes_in_group("enemy")
 		Target.EVERYONE:
-			return tree.get_nodes_in_group("player") + tree.get_nodes_in_group("enemies")
+			return tree.get_nodes_in_group("player") + tree.get_nodes_in_group("enemy")
 		_:
 			return []
 
-func play(targets: Array[Node], character_stats: CharacterStats):
+func play(targets: Array[Node], stats: CharacterStats):
 	Events.card_played.emit(self)
-	if character_stats.can_play_card(self):
-		character_stats.energy -= cost
+	if stats.can_play_card(self):
+		stats.energy -= cost
 	
 	
 	if is_single_targeted():
-		apply_effects(targets)
+		apply_effects(targets, stats)
 	else:
-		apply_effects(_get_targets(targets))
+		apply_effects(_get_targets(targets), stats)
 	
-func apply_effects(_targets: Array[Node]):
+func apply_effects(_targets: Array[Node], stats: CharacterStats):
 	pass

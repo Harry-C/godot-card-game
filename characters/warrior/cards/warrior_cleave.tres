@@ -1,0 +1,16 @@
+[gd_resource type="Resource" load_steps=4 format=3 uid="uid://dmdcpna8ll8js"]
+
+[ext_resource type="Texture2D" uid="uid://cqcal03735mv8" path="res://art/tile_0118.png" id="1_5va13"]
+[ext_resource type="Script" path="res://characters/warrior/cards/warrior_cleave.gd" id="2_5bdga"]
+[ext_resource type="AudioStream" uid="uid://dixklg6g4jnsq" path="res://art/slash.ogg" id="3_qrpg2"]
+
+[resource]
+script = ExtResource("2_5bdga")
+id = "warrior_cleave"
+type = 0
+target = 2
+cost = 2
+icon = ExtResource("1_5va13")
+name = "Cleave"
+tooltip = "[center]Deal 4:STRENGTH: [color=\"e5b80b\"]damage[/color] to all enemies[/center]"
+sound = ExtResource("3_qrpg2")

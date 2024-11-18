@@ -17,7 +17,7 @@ func perform_action() -> void:
 	action_performed = true
 	
 	var block_effect := BlockEffect.new()
-	block_effect.amount = block
+	block_effect.amount = block + enemy.stats.dexterity
 	block_effect.sound = sound
 	block_effect.execute([enemy])
 	

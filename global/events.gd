@@ -39,3 +39,10 @@ signal enemy_action_completed(enemy: Enemy)
 signal enemy_turn_ended
 
 # }
+
+# Battle related events
+# {
+
+signal battle_over(text: String, type: BattleOverPanel.Type)
+
+# }

@@ -9,4 +9,6 @@ script = ExtResource("2_4jijd")
 ai = ExtResource("1_sbqcl")
 starting_health = 10
 starting_block = 0
+starting_strength = 0
+starting_dexterity = 0
 art = ExtResource("1_djskq")

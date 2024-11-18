@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="EnemyStats" load_steps=4 format=3 uid="uid://btu1b1odamier"]
+
+[ext_resource type="Texture2D" uid="uid://con6y7mc74c5a" path="res://art/tile_0120.png" id="1_baxg7"]
+[ext_resource type="PackedScene" uid="uid://7g3iry6fjhu8" path="res://enemies/bat/bat_enemy_ai.tscn" id="1_hyi0w"]
+[ext_resource type="Script" path="res://custom_resources/enemy_stats.gd" id="1_n6ltq"]
+
+[resource]
+script = ExtResource("1_n6ltq")
+ai = ExtResource("1_hyi0w")
+starting_health = 8
+starting_block = 0
+starting_strength = 0
+starting_dexterity = 0
+art = ExtResource("1_baxg7")

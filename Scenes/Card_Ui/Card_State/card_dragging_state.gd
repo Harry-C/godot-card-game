@@ -12,6 +12,7 @@ func enter() -> void:
 	card_ui.panel.set("theme_override_styles/panel", card_ui.DRAG_STYLE)
 	
 	Events.card_drag_started.emit(card_ui)
+	Events.card_tooltip_hide_requested.emit()
 	
 	minimum_drag_state_elapsed = false
 	var threshold_timer := get_tree().create_timer(DRAG_MINIMUM_THRESHOLD, false)

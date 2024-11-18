@@ -3,7 +3,7 @@ class_name Hand
 extends HBoxContainer
 
 # Used for passing down character stats to the card_ui cards from battle parent
-@export var character_stats: CharacterStats
+@export var stats: CharacterStats
 
 # Used for loading in new cards
 @onready var card_ui := preload("res://Scenes/Card_Ui/card_ui.tscn")
@@ -23,7 +23,7 @@ func draw_card(card: Card) -> void:
 	new_card.reparent_requested.connect(_on_reparent_requested)
 	new_card.card = card.duplicate()
 	new_card.parent = self
-	new_card.character_stats = character_stats
+	new_card.stats = stats
 	Events.player_card_drawn.emit(new_card)
 	
 func discard_card(card: CardUI) -> void:

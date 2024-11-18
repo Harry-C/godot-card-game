@@ -1,7 +1,7 @@
 class_name Battle
 extends Node2D
 
-@export var character_stats: CharacterStats
+@export var stats: CharacterStats
 @export var music: AudioStream
 
 @onready var battle_ui: BattleUI = $BattleUI
@@ -13,10 +13,10 @@ func _ready() -> void:
 	# Character Statistics should be set at the beginning of the run instead
 	# of at the start of a battle. That way we can save gold, health and deck
 	# for the whole run
-	var new_character_stats: CharacterStats = character_stats.create_instance()
-	new_character_stats.deck.shuffle()
-	battle_ui.character_stats = new_character_stats
-	player.character_stats = new_character_stats
+	var new_stats: CharacterStats = stats.create_instance()
+	new_stats.deck.shuffle()
+	battle_ui.stats = new_stats
+	player.stats = new_stats
 	
 	# When all enemy turns have ended, we can then start the next player turn
 	Events.enemy_turn_ended.connect(_on_enemy_turn_ended)
@@ -28,12 +28,13 @@ func _ready() -> void:
 	# If our player dies in the battle make sure to punish the player ;)
 	Events.player_died.connect(_on_player_died)
 	
-	start_battle(new_character_stats)
+	start_battle(new_stats)
 	
-func start_battle(character_stats_param: CharacterStats) -> void:
+func start_battle(stats_param: CharacterStats) -> void:
+	get_tree().paused = false
 	MusicPlayer.play(music, true)
 	enemy_handler.reset_enemy_actions()
-	player_handler.start_battle(character_stats_param)
+	player_handler.start_battle(stats_param)
 
 func _on_enemy_turn_ended() -> void:
 	player_handler.start_turn()
@@ -41,7 +42,7 @@ func _on_enemy_turn_ended() -> void:
 
 func _on_enemy_handler_child_order_changed() -> void:
 	if enemy_handler.get_child_count() == 0:
-		print("Victory!")
+		Events.battle_over.emit("Victory!", BattleOverPanel.Type.WIN)
 
 func _on_player_died() -> void:
-	print("Defeated!")
+	Events.battle_over.emit("Defeated!", BattleOverPanel.Type.LOSE)

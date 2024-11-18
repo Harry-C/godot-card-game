@@ -1,19 +1,19 @@
 class_name EnergyUI
 extends Panel
 
-@export var character_stats: CharacterStats : set = _set_character_stats
+@export var stats: CharacterStats : set = _set_stats
 
 @onready var energy_label: Label = $EnergyLabel
 
 #Temporary code
 func _ready():
-	character_stats.energy = 3
+	stats.energy = 3
 
-func _set_character_stats(value: CharacterStats):
-	character_stats = value
+func _set_stats(value: CharacterStats):
+	stats = value
 	
-	if not character_stats.stats_changed.is_connected(_on_stats_changed):
-		character_stats.stats_changed.connect(_on_stats_changed)
+	if not stats.stats_changed.is_connected(_on_stats_changed):
+		stats.stats_changed.connect(_on_stats_changed)
 	
 	if not is_node_ready():
 		await ready
@@ -21,4 +21,4 @@ func _set_character_stats(value: CharacterStats):
 	_on_stats_changed()
 
 func _on_stats_changed():
-	energy_label.text = "%s/%s" % [character_stats.energy, character_stats.max_energy]
+	energy_label.text = "%s/%s" % [stats.energy, stats.max_energy]

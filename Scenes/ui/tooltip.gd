@@ -2,7 +2,7 @@ class_name Tooltip
 extends PanelContainer
 
 @export var fade_seconds := 0.5
-@export var fade_timeout := 1
+@export var fade_timeout := 1.0
 
 @onready var tooltip_icon: TextureRect = %TooltipIcon
 @onready var tooltip_card_title: RichTextLabel = %TooltipCardTitle
@@ -56,11 +56,8 @@ func show_tooltip(icon: Texture, cardName: String, cardDescription: String):
 	tween.tween_callback(show)
 	tween.tween_property(self, "modulate", Color.WHITE, fade_seconds)
 
-func hide_tooltip():
-	#print("hide tooltip")
-	
+func hide_tooltip():	
 	is_tooltip_visible = false
-	
 	create_fade_timer()
 
 func hide_animation():

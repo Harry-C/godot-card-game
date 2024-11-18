@@ -5,6 +5,8 @@ signal stats_changed
 
 @export var starting_health := 1
 @export var starting_block := 0
+@export var starting_strength := 0
+@export var starting_dexterity := 0
 @export var art: Texture
 
 var health: int : set = set_health
@@ -72,4 +74,6 @@ func create_instance() -> Resource:
 	var instance: Stats = self.duplicate()
 	instance.health = starting_health
 	instance.block = starting_block
+	instance.strength = starting_strength
+	instance.dexterity = starting_dexterity
 	return instance

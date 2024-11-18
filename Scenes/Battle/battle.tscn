@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://b18a8sg7wdjls"]
+[gd_scene load_steps=20 format=3 uid="uid://b18a8sg7wdjls"]
 
 [ext_resource type="Script" path="res://Scenes/Battle/battle.gd" id="1_6f2ov"]
 [ext_resource type="Texture2D" uid="uid://cp4iq5fd6j8be" path="res://art/background.png" id="1_novpl"]
@@ -12,17 +12,19 @@
 [ext_resource type="Resource" uid="uid://dt6j15f561aef" path="res://enemies/crab/crab_enemy.tres" id="5_kbg0e"]
 [ext_resource type="Script" path="res://Scenes/ui/battle_ui.gd" id="6_hmtni"]
 [ext_resource type="Script" path="res://Scenes/player/Player_Handler.gd" id="7_esral"]
+[ext_resource type="Resource" uid="uid://btu1b1odamier" path="res://enemies/bat/bat_enemy.tres" id="8_7jc1m"]
 [ext_resource type="PackedScene" uid="uid://b14utisb2h2ok" path="res://Scenes/Card_Ui/energy_ui.tscn" id="11_7aeg5"]
 [ext_resource type="PackedScene" uid="uid://dhwi08u42ms74" path="res://Scenes/ui/tooltip.tscn" id="12_1cn3e"]
 [ext_resource type="Theme" uid="uid://bhwmfnyyieplb" path="res://main_theme.tres" id="12_kww7l"]
 [ext_resource type="Script" path="res://Scenes/ui/player_damage_flash.gd" id="15_5awil"]
+[ext_resource type="PackedScene" uid="uid://bikenc7d3ey4e" path="res://Scenes/ui/battle_over_panel.tscn" id="17_vya6x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cialh"]
 size = Vector2(256, 100)
 
 [node name="Battle" type="Node2D"]
 script = ExtResource("1_6f2ov")
-character_stats = ExtResource("4_1s5hy")
+stats = ExtResource("4_1s5hy")
 music = ExtResource("3_sd1qd")
 metadata/_edit_lock_ = true
 
@@ -45,13 +47,21 @@ metadata/_edit_lock_ = true
 [node name="EnemyHandler" type="Node2D" parent="."]
 script = ExtResource("4_wyp3n")
 
-[node name="Enemy" parent="EnemyHandler" instance=ExtResource("2_6us7v")]
+[node name="BatEnemy2" parent="EnemyHandler" instance=ExtResource("2_6us7v")]
+position = Vector2(215, 43)
+stats = ExtResource("8_7jc1m")
+
+[node name="BatEnemy" parent="EnemyHandler" instance=ExtResource("2_6us7v")]
+position = Vector2(175, 43)
+stats = ExtResource("8_7jc1m")
+
+[node name="CrabEnemy" parent="EnemyHandler" instance=ExtResource("2_6us7v")]
 position = Vector2(195, 71)
 stats = ExtResource("5_kbg0e")
 
 [node name="Player" parent="." instance=ExtResource("3_1qvg3")]
 position = Vector2(58, 71)
-character_stats = ExtResource("4_1s5hy")
+stats = ExtResource("4_1s5hy")
 
 [node name="CardTargetSelector" parent="." instance=ExtResource("3_f602p")]
 
@@ -76,16 +86,17 @@ grow_horizontal = 2
 grow_vertical = 0
 alignment = 1
 script = ExtResource("2_qainr")
-character_stats = ExtResource("4_1s5hy")
 
 [node name="EnergyUI" parent="BattleUI" instance=ExtResource("11_7aeg5")]
 offset_left = 7.0
 offset_right = 25.0
-character_stats = ExtResource("4_1s5hy")
+stats = ExtResource("4_1s5hy")
 
 [node name="Tooltip" parent="BattleUI" instance=ExtResource("12_1cn3e")]
 offset_top = 3.0
 offset_bottom = 39.0
+fade_seconds = 0.25
+fade_timeout = 0.25
 
 [node name="EndTurnButton" type="Button" parent="BattleUI"]
 unique_name_in_owner = true
@@ -140,5 +151,11 @@ color = Color(0.811765, 0, 0.14902, 0)
 [node name="Timer" type="Timer" parent="PlayerDamageFlash"]
 wait_time = 0.15
 one_shot = true
+
+[node name="BattleOver" type="CanvasLayer" parent="."]
+layer = 3
+
+[node name="BattleOverPanel" parent="BattleOver" instance=ExtResource("17_vya6x")]
+visible = false
 
 [connection signal="child_order_changed" from="EnemyHandler" to="." method="_on_enemy_handler_child_order_changed"]

@@ -13,7 +13,7 @@ const DRAG_STYLE := preload("res://Scenes/Card_Ui/card_dragging_stylebox.tres")
 # This represents the property (type) of card that we have
 @export var card: Card : set = _set_card
 
-@export var character_stats: CharacterStats : set = _set_character_stats
+@export var stats: CharacterStats : set = _set_stats
 
 # Specific card properties
 @onready var panel = $Panel
@@ -54,7 +54,7 @@ func _ready():
 func play():
 	if not card:
 		return
-	card.play(targets, character_stats)
+	card.play(targets, stats)
 	parent.move_cards(self)
 	queue_free()
 
@@ -102,12 +102,12 @@ func _set_card_playable(value: bool):
 		cost.remove_theme_color_override("font_color")
 		icon.modulate = Color(1,1,1,1)
 
-func _set_character_stats(value: CharacterStats):
-	character_stats = value
-	character_stats.stats_changed.connect(_on_character_stats_changed)
+func _set_stats(value: CharacterStats):
+	stats = value
+	stats.stats_changed.connect(_on_stats_changed)
 	
-func _on_character_stats_changed():
-	card_playable = character_stats.can_play_card(card)
+func _on_stats_changed():
+	card_playable = stats.can_play_card(card)
 	_set_tooltip_text(card)
 	pass
 	
@@ -118,7 +118,7 @@ func _on_card_drag_or_aiming_started(used_card: CardUI):
 
 func _on_card_drag_or_aiming_ended(_card: CardUI):
 	disabled = false
-	card_playable = character_stats.can_play_card(card)
+	card_playable = stats.can_play_card(card)
 
 func _on_card_drawn(card_drawn: CardUI):
 	# All cards will trigger this event. Make sure it is our instance
@@ -134,7 +134,7 @@ func _set_tooltip_text(card_to_update: Card):
 	card_to_update.tooltip_final = card_to_update.tooltip
 	
 	# Strength
-	var strength_amount = character_stats.strength
+	var strength_amount = stats.strength
 	var strength_addition = ""
 	if strength_amount > 0:
 		strength_addition = "[color=\"00FF00\"]+%s[/color]" % strength_amount
@@ -142,7 +142,7 @@ func _set_tooltip_text(card_to_update: Card):
 		card_to_update.tooltip_final = card_to_update.tooltip.replace(":STRENGTH:", strength_addition)
 	
 	# Dexterity
-	var dexterity_amount = character_stats.dexterity
+	var dexterity_amount = stats.dexterity
 	var dexterity_addition = ""
 	if dexterity_amount > 0:
 		dexterity_addition = "[color=\"00FF00\"]+%s[/color]" % dexterity_amount
