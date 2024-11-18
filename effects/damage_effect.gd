@@ -15,3 +15,4 @@ func execute(targets: Array[Node]):
 			var enemy = targets[0].get_tree().get_nodes_in_group("enemy")
 			amount += enemy[0].stats.strength
 		target.take_damage(amount)
+		SoundEffectPlayer.play(sound)

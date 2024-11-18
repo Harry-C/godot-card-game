@@ -10,5 +10,7 @@ func execute(targets: Array[Node]):
 			continue
 		if target is Player:
 			target.character_stats.add_dexterity(amount)
+			SoundEffectPlayer.play(sound)
 		if target is Enemy:
 			target.stats.add_dexterity(amount)
+			SoundEffectPlayer.play(sound)

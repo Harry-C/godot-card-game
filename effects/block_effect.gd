@@ -11,6 +11,8 @@ func execute(targets: Array[Node]):
 		if target is Player:
 			amount += target.character_stats.dexterity
 			target.character_stats.defend(amount)
+			SoundEffectPlayer.play(sound)
 		if target is Enemy:
 			amount += target.stats.dexterity
 			target.stats.defend(amount)
+			SoundEffectPlayer.play(sound)

@@ -1,7 +1,8 @@
-[gd_resource type="Resource" load_steps=3 format=3 uid="uid://wvseh5jmvncy"]
+[gd_resource type="Resource" load_steps=4 format=3 uid="uid://wvseh5jmvncy"]
 
 [ext_resource type="Texture2D" uid="uid://ck1t4hdip6xrl" path="res://art/tile_0119.png" id="1_4lvyt"]
 [ext_resource type="Script" path="res://characters/warrior/cards/warrior_axe_attack.gd" id="1_x3ntq"]
+[ext_resource type="AudioStream" uid="uid://b1vpjjmi5cj3n" path="res://art/axe.ogg" id="3_1o3d1"]
 
 [resource]
 script = ExtResource("1_x3ntq")
@@ -12,3 +13,4 @@ cost = 1
 icon = ExtResource("1_4lvyt")
 name = "Strike"
 tooltip = "[center]Deal 5:STRENGTH: [color=\"e5b80b\"]damage[/color][/center]"
+sound = ExtResource("3_1o3d1")

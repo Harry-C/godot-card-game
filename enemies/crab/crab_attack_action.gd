@@ -13,6 +13,7 @@ func perform_action() -> void:
 	var damage_effect := DamageEffect.new()
 	var target_array: Array[Node] = [target]
 	damage_effect.amount = damage
+	damage_effect.sound = sound
 
 	# Move the enemy to the player, execute the attack then return the enemy
 	# back to the starting position

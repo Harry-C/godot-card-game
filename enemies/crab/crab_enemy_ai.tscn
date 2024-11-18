@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bieae4xc2ncmo"]
+[gd_scene load_steps=21 format=3 uid="uid://bieae4xc2ncmo"]
 
 [ext_resource type="Script" path="res://Scenes/enemy/enemy_action_picker.gd" id="1_nq8c8"]
 [ext_resource type="Script" path="res://enemies/crab/crab_attack_action.gd" id="2_kft0b"]
@@ -7,11 +7,14 @@
 [ext_resource type="Script" path="res://custom_resources/intent.gd" id="4_043sa"]
 [ext_resource type="Script" path="res://enemies/crab/crab_mega_block_action.gd" id="4_idk7b"]
 [ext_resource type="Script" path="res://enemies/crab/crab_buff_action.gd" id="5_p1d6f"]
+[ext_resource type="AudioStream" uid="uid://de2ryat1pxq6" path="res://art/enemy_attack.ogg" id="5_r2lfs"]
 [ext_resource type="Texture2D" uid="uid://bi6pfjs32f820" path="res://art/tile_0101.png" id="6_j4dmb"]
+[ext_resource type="AudioStream" uid="uid://k8m4o3hlwm7l" path="res://art/enemy_block.ogg" id="8_1ma7m"]
 [ext_resource type="Texture2D" uid="uid://oe7v35ii8vrs" path="res://art/tile_0102.png" id="8_ubc3h"]
 [ext_resource type="Texture2D" uid="uid://boklhiqs1414d" path="res://art/tile_0115.png" id="10_ukg85"]
 [ext_resource type="Script" path="res://enemies/crab/crab_mega_attack_action.gd" id="11_0cauy"]
 [ext_resource type="Texture2D" uid="uid://ck1t4hdip6xrl" path="res://art/tile_0119.png" id="12_5wchl"]
+[ext_resource type="AudioStream" uid="uid://bs1lq45dsms4g" path="res://art/raise.ogg" id="13_4uwnl"]
 
 [sub_resource type="Resource" id="Resource_4b2my"]
 script = ExtResource("4_043sa")
@@ -46,24 +49,29 @@ script = ExtResource("2_kft0b")
 type = 1
 chance_weight = 2
 intent = SubResource("Resource_4b2my")
+sound = ExtResource("5_r2lfs")
 
 [node name="BlockAction" type="Node" parent="."]
 script = ExtResource("3_k801c")
 type = 1
 chance_weight = 2
 intent = SubResource("Resource_rf77m")
+sound = ExtResource("8_1ma7m")
 
 [node name="MegaBlockAction" type="Node" parent="."]
 script = ExtResource("4_idk7b")
 intent = SubResource("Resource_si07o")
+sound = ExtResource("8_1ma7m")
 
 [node name="BuffAction" type="Node" parent="."]
 script = ExtResource("5_p1d6f")
 type = 1
 chance_weight = 1
 intent = SubResource("Resource_xol80")
+sound = ExtResource("13_4uwnl")
 
 [node name="MegaAttackAction" type="Node" parent="."]
 script = ExtResource("11_0cauy")
 damage = 10
 intent = SubResource("Resource_mcgyt")
+sound = ExtResource("5_r2lfs")

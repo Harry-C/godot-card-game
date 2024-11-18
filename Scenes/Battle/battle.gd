@@ -2,6 +2,7 @@ class_name Battle
 extends Node2D
 
 @export var character_stats: CharacterStats
+@export var music: AudioStream
 
 @onready var battle_ui: BattleUI = $BattleUI
 @onready var player_handler: PlayerHandler = $PlayerHandler
@@ -30,7 +31,8 @@ func _ready() -> void:
 	start_battle(new_character_stats)
 	
 func start_battle(character_stats_param: CharacterStats) -> void:
-	print("battle has started!")
+	MusicPlayer.play(music, true)
+	enemy_handler.reset_enemy_actions()
 	player_handler.start_battle(character_stats_param)
 
 func _on_enemy_turn_ended() -> void:

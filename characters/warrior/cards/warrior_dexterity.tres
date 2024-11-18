@@ -1,7 +1,8 @@
-[gd_resource type="Resource" load_steps=3 format=3 uid="uid://dr5kuem78tw33"]
+[gd_resource type="Resource" load_steps=4 format=3 uid="uid://dr5kuem78tw33"]
 
 [ext_resource type="Texture2D" uid="uid://c2xhttrclo1r7" path="res://art/tile_0116.png" id="1_3vhye"]
 [ext_resource type="Script" path="res://characters/warrior/cards/warrior_dexterity.gd" id="2_4u623"]
+[ext_resource type="AudioStream" uid="uid://bs1lq45dsms4g" path="res://art/raise.ogg" id="3_efh0w"]
 
 [resource]
 script = ExtResource("2_4u623")
@@ -12,3 +13,4 @@ cost = 2
 icon = ExtResource("1_3vhye")
 name = "Agility"
 tooltip = "[center]Gain 2 [color=\"e5b80b\"]dexterity[/color][/center]"
+sound = ExtResource("3_efh0w")

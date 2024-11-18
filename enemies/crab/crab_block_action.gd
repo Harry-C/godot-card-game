@@ -8,6 +8,7 @@ func perform_action() -> void:
 	
 	var block_effect := BlockEffect.new()
 	block_effect.amount = block
+	block_effect.sound = sound
 	block_effect.execute([enemy])
 	
 	# Do not immediately finish, wait a bit first to 

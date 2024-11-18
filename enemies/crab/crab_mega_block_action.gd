@@ -8,16 +8,17 @@ var action_performed := false
 func is_performable() -> bool:
 	if not enemy or action_performed:
 		return false
-	if enemy.stats.health <= enemy.stats.starting_health / 2.0:
-		action_performed = true
-	return action_performed
+	return enemy.stats.health <= enemy.stats.starting_health / 2.0
 
 func perform_action() -> void:
 	if not enemy or not target:
 		return
 	
+	action_performed = true
+	
 	var block_effect := BlockEffect.new()
 	block_effect.amount = block
+	block_effect.sound = sound
 	block_effect.execute([enemy])
 	
 	# Do not immediately finish, wait a bit first to 

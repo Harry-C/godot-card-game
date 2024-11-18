@@ -21,6 +21,7 @@ func perform_action() -> void:
 	
 	var power_effect := StrengthEffect.new()
 	power_effect.amount = strength
+	power_effect.sound = sound
 	var target_array: Array[Node] = [enemy]
 	power_effect.execute(target_array)
 	

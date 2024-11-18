@@ -1,7 +1,8 @@
-[gd_resource type="Resource" load_steps=3 format=3 uid="uid://6nhh3mn2g2x5"]
+[gd_resource type="Resource" load_steps=4 format=3 uid="uid://6nhh3mn2g2x5"]
 
 [ext_resource type="Texture2D" uid="uid://oe7v35ii8vrs" path="res://art/tile_0102.png" id="1_cqv7w"]
 [ext_resource type="Script" path="res://characters/warrior/cards/warrior_block.gd" id="1_qr8sc"]
+[ext_resource type="AudioStream" uid="uid://df64e7qat73gs" path="res://art/block.ogg" id="3_pw0an"]
 
 [resource]
 script = ExtResource("1_qr8sc")
@@ -12,3 +13,4 @@ cost = 1
 icon = ExtResource("1_cqv7w")
 name = "Defend"
 tooltip = "[center]Gain 5:DEXTERITY: [color=\"e5b80b\"]block[/color][/center]"
+sound = ExtResource("3_pw0an")

@@ -1,7 +1,8 @@
-[gd_resource type="Resource" load_steps=3 format=3 uid="uid://bih1d32x6d677"]
+[gd_resource type="Resource" load_steps=4 format=3 uid="uid://bih1d32x6d677"]
 
 [ext_resource type="Texture2D" uid="uid://boklhiqs1414d" path="res://art/tile_0115.png" id="1_keem7"]
 [ext_resource type="Script" path="res://characters/warrior/cards/warrior_strength.gd" id="1_sdtd3"]
+[ext_resource type="AudioStream" uid="uid://bs1lq45dsms4g" path="res://art/raise.ogg" id="3_aroya"]
 
 [resource]
 script = ExtResource("1_sdtd3")
@@ -12,3 +13,4 @@ cost = 2
 icon = ExtResource("1_keem7")
 name = "Flex"
 tooltip = "[center]Gain 2 [color=\"e5b80b\"]strength[/color][/center]"
+sound = ExtResource("3_aroya")

@@ -17,6 +17,7 @@ enum Target { SELF, SINGLE_ENEMY, ALL_ENEMIES, EVERYONE }
 @export var icon: Texture
 @export var name: String
 @export_multiline var tooltip: String
+@export var sound: AudioStream
 # Tooltip with placeholders removed from buffs
 var tooltip_final: String
 

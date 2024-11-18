@@ -7,6 +7,7 @@ enum Type { CONDITIONAL, CHANCE }
 @export var type: Type
 @export_range(0, 10) var chance_weight: int
 @export var intent: Intent
+@export var sound: AudioStream
 
 @onready var accumulated_weight := 0.0
 

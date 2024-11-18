@@ -23,6 +23,7 @@ func perform_action() -> void:
 	var end := target.global_position + Vector2.RIGHT * 32
 	var damage_effect := DamageEffect.new()
 	var target_array: Array[Node] = [target]
+	damage_effect.sound = sound
 	damage_effect.amount = damage
 
 	# Move the enemy to the player, execute the attack then return the enemy

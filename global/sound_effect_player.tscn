@@ -1,0 +1,27 @@
+[gd_scene load_steps=2 format=3 uid="uid://6ig2507d0rnw"]
+
+[ext_resource type="Script" path="res://global/sound_player.gd" id="1_mlur7"]
+
+[node name="SoundEffectPlayer" type="Node"]
+script = ExtResource("1_mlur7")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+bus = &"Sound Effects"
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+bus = &"Sound Effects"
+
+[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="."]
+bus = &"Sound Effects"
+
+[node name="AudioStreamPlayer4" type="AudioStreamPlayer" parent="."]
+bus = &"Sound Effects"
+
+[node name="AudioStreamPlayer5" type="AudioStreamPlayer" parent="."]
+bus = &"Sound Effects"
+
+[node name="AudioStreamPlayer6" type="AudioStreamPlayer" parent="."]
+bus = &"Sound Effects"
+
+[node name="AudioStreamPlayer7" type="AudioStreamPlayer" parent="."]
+bus = &"Sound Effects"
