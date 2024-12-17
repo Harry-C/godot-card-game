@@ -34,6 +34,8 @@ func create_instance() -> Resource:
 func take_damage(damage: int) -> void:
 	var initial_health = health
 	super.take_damage(damage)
+	Statistics.player_damage_taken += damage
+	
 	# Did we lose damage after this attack?
 	if initial_health > health:
 		Events.player_hit.emit()

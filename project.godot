@@ -10,7 +10,9 @@ config_version=5
 
 [application]
 
-config/name="Deck Builder Tutorial"
+config/name="Godot Deck Builder"
+config/description="This is my version of the wonderful Godot 4 Intermediate Card Game Course made by GodotGameLab."
+config/version="1.0"
 run/main_scene="res://Scenes/Battle/battle.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
@@ -21,6 +23,7 @@ Events="*res://global/events.gd"
 Shaker="*res://global/shaker.gd"
 MusicPlayer="*res://global/music_player.tscn"
 SoundEffectPlayer="*res://global/sound_effect_player.tscn"
+Statistics="*res://global/statistics.gd"
 
 [display]
 
@@ -58,3 +61,4 @@ right_mouse={
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+textures/vram_compression/import_etc2_astc=true

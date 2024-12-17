@@ -10,3 +10,5 @@ func execute(targets: Array[Node]):
 			continue	
 		target.take_damage(amount)
 		SoundEffectPlayer.play(sound)
+		if target is Enemy:
+			Statistics.player_damage_dealt += amount

@@ -45,6 +45,12 @@ func play(targets: Array[Node], stats: CharacterStats):
 	Events.card_played.emit(self)
 	if stats.can_play_card(self):
 		stats.energy -= cost
+		
+		Statistics.energy_used += cost
+		if Statistics.most_played_card.has(name):
+			Statistics.most_played_card[name] += 1
+		else:
+			Statistics.most_played_card[name] = 1
 	
 	
 	if is_single_targeted():

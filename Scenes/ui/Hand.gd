@@ -9,8 +9,6 @@ extends HBoxContainer
 @onready var card_ui := preload("res://Scenes/Card_Ui/card_ui.tscn")
 
 
-var cards_played_this_turn := 0
-
 # Get all cards in hand and setup a signal to reattach to the hand when
 # the card goes into the base state
 func _ready():
@@ -40,7 +38,8 @@ func _on_reparent_requested(child: CardUI) -> void:
 	move_child.call_deferred(child,new_index)
 
 func _on_card_played(_card: Card):
-	cards_played_this_turn += 1
+	Statistics.cards_played += 1
+	
 	
 # Move all hand card indexes down by one when a card is played
 func move_cards(_card_played: CardUI):

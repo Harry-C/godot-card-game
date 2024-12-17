@@ -29,6 +29,8 @@ func start_turn() -> void:
 	stats.decrease_dexterity(1)
 	stats.reset_energy()
 	draw_cards(stats.cards_per_turn)
+
+	Statistics.rounds_played += 1
 	
 	debug_discard_total.text = "Discard: %d" % stats.discard.cards.size()
 	debug_draw_pile_total.text = "Draw: %d" % stats.draw_pile.cards.size()

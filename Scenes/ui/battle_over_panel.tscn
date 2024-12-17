@@ -55,3 +55,55 @@ custom_minimum_size = Vector2(50, 16)
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Play Again?"
+
+[node name="ResetStatisticsButton" type="Button" parent="WinScreenContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 16)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Reset Stats"
+
+[node name="Gap" type="HBoxContainer" parent="WinScreenContainer"]
+layout_mode = 2
+
+[node name="RoundsPlayed" type="Label" parent="WinScreenContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Rounds played: 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MostPlayedCard" type="Label" parent="WinScreenContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Most played card: Strike - 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlayerDamageDealt" type="Label" parent="WinScreenContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Damage Dealt: 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlayerDamageTaken" type="Label" parent="WinScreenContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Damage Taken: 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TotalEnergyUsed" type="Label" parent="WinScreenContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Energy Used: 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TotalCardsPlayed" type="Label" parent="WinScreenContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Cards played: 0"
+horizontal_alignment = 1
+vertical_alignment = 1
